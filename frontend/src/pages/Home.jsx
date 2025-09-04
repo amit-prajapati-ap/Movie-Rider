@@ -1,11 +1,12 @@
 import React from 'react'
-import { Button } from '@/components/ui/button'
+import { FeaturedSection, HeroSection } from '@/components'
 
 const Home = () => {
   return (
-    <div>
-      Home
-    </div>
+    <>
+      <HeroSection/>
+      <FeaturedSection/>
+    </>
   )
 }
 

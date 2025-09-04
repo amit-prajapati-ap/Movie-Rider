@@ -2,8 +2,10 @@
 @import "tailwindcss";
 
 @theme{
-  --color-primary: #F84565;
-  --color-primary-dull: #D63854
+  --color-primary-light: #2aada0;
+  --color-primary-dull: #2e989f;
+  --breakpoint-xxs: 375px;
+  --breakpoint-xs: 470px;
 }
 
 *{
