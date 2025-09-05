@@ -11,13 +11,13 @@ const Navbar = () => {
   const { openSignIn } = useClerk();
   const navigate = useNavigate();
   return (
-    <div className="flex items-center justify-between fixed top-0 left-0 z-50 w-full px-6 md:px-4 lg:px-36 py-5">
+    <div className="flex items-center justify-between fixed top-0 left-0 z-50 w-full px-6 md:px-4 lg:px-12 xl:px-36 py-5">
       <Link to={"/"} className="max-md:flex-1">
         <img src={assets.logo} alt="" className="w-36 h-auto" />
       </Link>
 
       <div
-        className={`max-md:absolute max-md:top-0 max-md:left-0 max-md:font-medium max-md:text-lg z-50 flex flex-col md:flex-row items-center max-md:justify-center max-md:pt-18 gap-8 min-md:px-8 py-3 max-md:h-screen min-md:rounded-full backdrop-blur bg-black/70 md:bg-white/10 md:border border-gray-300/20 overflow-hidden transition-[width] duration-300 ${
+        className={`max-md:absolute max-md:top-0 max-md:left-0 max-md:font-medium max-md:text-lg z-50 flex flex-col md:flex-row items-center max-md:justify-center max-md:pt-18 gap-8 min-md:px-8 py-3 max-md:h-screen min-md:rounded-full backdrop-blur bg-black/70 md:bg-white/10 md:border border-gray-300/20 overflow-hidden transition-[width] duration-300 md:mr-15 ${
           isOpen ? "max-md:w-full" : "max-md:w-0"
         }`}
       >
@@ -73,7 +73,7 @@ const Navbar = () => {
       </div>
 
       <div className="flex items-center gap-8">
-        <SearchIcon className="max-md:mr-4 md:hidden w-6 h-6 cursor-pointer" />
+        <SearchIcon className="w-6 h-6 cursor-pointer" />
         {!user ? (
           <Button
             onClick={openSignIn}

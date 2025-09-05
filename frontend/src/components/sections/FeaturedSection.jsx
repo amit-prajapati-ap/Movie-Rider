@@ -17,7 +17,7 @@ export function FeaturedSection() {
   const navigate = useNavigate();
   const plugin = React.useRef(
     Autoplay({
-      delay: 2000,
+      delay: 3000,
       direction: "forward",
       jumpTo: "start",
       stopOnInteraction: false,
@@ -25,10 +25,10 @@ export function FeaturedSection() {
     })
   );
   return (
-    <div className="px-6 md:px-16 lg:px-24 xl:px-44 overflow-hidden">
-      <div className="relative flex items-center justify-between pt-20 pb-10">
+    <div className="px-6 md:px-16 lg:px-24 xl:px-44 overflow-hidden max-w-[1700px] mx-auto">
+      <div className="relative flex items-center justify-between pt-10 pb-10">
         <BlurCircle top="0" right="-80px" />
-        <p className="text-gray-300 font-medium text-lg">Now Showing</p>
+        <p className="text-gray-300 font-medium text-2xl">Now Showing</p>
         <Button
           onClick={() => navigate("/movies")}
           className={"group text-gray-300 bg-transparent hover:bg-transparent"}
@@ -68,7 +68,7 @@ export function FeaturedSection() {
         </Carousel>
       </div>
 
-      <div className="flex justify-center mt-20">
+      <div className="flex justify-center mt-13">
         <Button
           onClick={() => {
             navigate("/movies");
