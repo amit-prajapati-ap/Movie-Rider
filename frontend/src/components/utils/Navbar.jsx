@@ -1,6 +1,6 @@
 import { assets } from "@/assets/assets";
 import { MenuIcon, SearchIcon, TicketPlus, XIcon } from "lucide-react";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { Button } from "../ui/button";
 import { useClerk, UserButton, useUser } from "@clerk/clerk-react";
@@ -10,8 +10,19 @@ const Navbar = () => {
   const { user } = useUser();
   const { openSignIn } = useClerk();
   const navigate = useNavigate();
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 10); // add blur after scrolling 10px
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
   return (
-    <div className="flex items-center justify-between fixed top-0 left-0 z-50 w-full px-6 md:px-4 lg:px-12 xl:px-36 py-5">
+    <div className={`flex items-center justify-between fixed top-0 left-0 z-50 w-full px-6 md:px-4 lg:px-12 xl:px-36 py-3 transition-all duration-300 ${
+        scrolled ? "backdrop-blur-lg bg-white/10" : "bg-transparent"
+      }`}>
       <Link to={"/"} className="max-md:flex-1">
         <img src={assets.logo} alt="" className="w-36 h-auto" />
       </Link>
