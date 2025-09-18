@@ -89,7 +89,7 @@ const Navbar = () => {
           <Button
             onClick={openSignIn}
             className={
-              "px-4 py-1 sm:px-7 sm:py-2 bg-primary hover:bg-primary-dull rounded-full font-medium"
+              "px-4 py-1 sm:px-7 sm:py-2 bg-primary-light hover:bg-primary-dull rounded-full font-medium"
             }
           >
             Login

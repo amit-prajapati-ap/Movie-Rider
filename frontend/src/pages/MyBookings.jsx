@@ -19,7 +19,7 @@ const MyBookings = () => {
   }, [])
 
   return !isLoading ? (
-    <div className='relative px-6 md:px-10 lg:px-20 pt-30 md:pt-40 h-[80vh] overflow-y-auto mx-auto max-w-6xl mb-10 no-scrollbar overflow-x-hidden'>
+    <div className='relative px-6 md:px-10 lg:px-20 pt-30 md:pt-40 h-screen overflow-y-auto mx-auto max-w-6xl mb-10 no-scrollbar overflow-x-hidden'>
       <BlurCircle top='100px' left='100px'/>
       <div>
         <BlurCircle bottom='0px' left='600px'/>

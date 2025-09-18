@@ -1,0 +1,54 @@
+import { dummyShowsData } from '@/assets/assets'
+import { AdminTitle } from '@/components'
+import { kConverter } from '@/lib/kConverter'
+import { StarIcon } from 'lucide-react'
+import React, { useEffect, useState } from 'react'
+
+const AddShows = () => {
+  const currency = import.meta.env.VITE_CURRENCY
+  const [nowPlayingMovies, setNowPlayingMovies] = useState([])
+  const [selectedMovie, setSelectedMovie] = useState(null)
+  const [dateTimeSelection, setDateTimeSelection] = useState({})
+  const [dateTimeInput, setDateTimeInput] = useState("")
+  const [showPrice, setShowPrice] = useState('')
+
+  const fetchNowPlayingMovies = async () => {
+    setNowPlayingMovies(dummyShowsData)
+  }
+
+  useEffect(() => {
+    fetchNowPlayingMovies()
+  }, [])
+  
+
+  return nowPlayingMovies.length > 0 ? (
+    <>
+      <AdminTitle text1={"Add"} text2={"Shows"}/>
+      <p className='mt-10 text-lg font-medium'>Now Playing Movies</p>
+      <div className='pb-4 overflow-x-auto'>
+        <div className='group flex flex-wrap gap-4 mt-4 w-max'>
+          {nowPlayingMovies.map((movie, index) => (
+            <div key={index} className={`relative max-w-40 cursor-pointer group-hover:not-hover:opacity-40 hover:-translate-y-1 transition duration-300`}>
+              <div className='relative rounded-lg overflow-hidden'>
+                <img src={movie.poster_path} alt="" className='w-full object-cover brightness-90' />
+                <div className='text-sm flex items-center justify-between p-2 bg-black/70 w-full absolute bottom-0 left-0'>
+                  <p className='flex items-center gap-1 text-gray-400'>
+                    <StarIcon className='w-4 h-4 text-primary-light fill-primary-light'/>
+                    {movie.vote_average.toFixed(1)}
+                  </p>
+                  <p className='text-gray-300'>{kConverter(movie.vote_count)} Votes</p>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </>
+  ) : (
+    <div className='w-full flex flex-col gap-1 items-center justify-center'>
+      <div className='spinner'></div>
+    </div>
+  )
+}
+
+export default AddShows
